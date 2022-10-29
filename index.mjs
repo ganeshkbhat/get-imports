@@ -23,5 +23,7 @@ import {
     _isCJSCodeBase, _isESCode, _isModuleInPackageJson
 } from './index.js';
 
-export default isesm;
+import * as getimports from "./index.js";
+
+export default getimports;
 
