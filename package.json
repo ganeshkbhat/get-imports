@@ -1,5 +1,5 @@
 {
-  "name": "get-imports",
+  "name": "get-imported",
   "version": "0.0.1",
   "description": "JS functions to check all imports or required modules and check if the file is a ES Module or a CJS/ JS Module or Script",
   "main": "index.js",
@@ -23,5 +23,8 @@
     "chai": "^4.3.6",
     "mocha": "^10.1.0",
     "sinon": "^14.0.1"
-  }
+  }, 
+  "keywords": [
+    "require","cache","uncache","uncached","module","fresh","fetch","all","imports","requires","es imports","cjs import","cjs require","mjs import","cjs import","cjs require","js require","fetch imported packages","fetch required packages","require cache","require-cache"
+  ]
 }
