@@ -8,7 +8,7 @@ Module to fetch all required and imported modules in Javascript and NodeJS
 
 ```
 
-const parser = require("get-imports");
+const parser = require("get-imported");
 let example_one = parser._importRegex("./demos/src/parser.imports.regex.js");
 let example_two = parser._requiresObject();
 let example_three = parser._requireRegex("./demos/src/parser.require.regex.js");
@@ -24,7 +24,7 @@ File example: `demos/parser.imports.regex.mjs`
 ```
 
 
-import * as parser from "../index.js";
+import * as parser from "get-imported";
 const path = import('path');
 const someModuleCJS = import('./parser.demo.require.cache.test.file.cjs');
 const someModuleJS = import('./parser.demo.require.cache.test.file.js');
