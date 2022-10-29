@@ -17,7 +17,7 @@
 
 
 import {
-    default as isesm, _getRoot, _getPackageJsonRoot, _checkModuleImports,
+    default as getimport, _getRoot, _getPackageJsonRoot, _checkModuleImports,
     _requiresObject, _requireRegex, _importRegex, _importESRegex,
     _importRegexExtended, _isESMFileExtension, _isESMCodeBase,
     _isCJSCodeBase, _isESCode, _isModuleInPackageJson
@@ -27,3 +27,9 @@ import * as getimports from "./index.js";
 
 export default getimports;
 
+export {
+    _getRoot, _getPackageJsonRoot, _checkModuleImports,
+    _requiresObject, _requireRegex, _importRegex, _importESRegex,
+    _importRegexExtended, _isESMFileExtension, _isESMCodeBase,
+    _isCJSCodeBase, _isESCode, _isModuleInPackageJson
+};
