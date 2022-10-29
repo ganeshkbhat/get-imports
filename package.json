@@ -51,6 +51,8 @@
     "imported packages", "import es packages",
     "import cjs packages", "import esm packages",
     "import js packages", "import packages list", 
-    "import package list", "require package list"
+    "import package list", "require package list",
+    "require-cache", "import-cache",
+    "require cache", "import cache"
   ]
 }
