@@ -14,3 +14,6 @@
 /* eslint no-console: 0 */
 
 'use strict';
+
+const parser = require("../index.js");
+const path = import('path');
