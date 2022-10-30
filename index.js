@@ -224,7 +224,7 @@ function _isCJSCodeBase(absPath) {
  * @return {*} 
  */
 function _isESCode(absPath) {
-    if (!_isCJSCodeBase(absPath) || !!_isESMCodeBase(absPath)) return true;
+    if (!_isCJSCodeBase(absPath) || !!_isESMCodeBase(absPath) && (!_requireRegex(absPath))) return true;
     return false;
 }
 
@@ -308,3 +308,4 @@ module.exports._isCJSCodeBase = _isCJSCodeBase;
 module.exports._isESCode = _isESCode;
 module.exports._isModuleInPackageJson = _isModuleInPackageJson;
 module.exports.default = _isESCode;
+
