@@ -196,7 +196,7 @@ function _isESMFileExtension(absPath) {
  */
 function _isESMCodeBase(absPath) {
     let o = _importESRegex(absPath);
-    if (_isESMFileExtension(absPath) === ".mjs" || !!Object.keys(o)) return true;
+    if (_isESMFileExtension(absPath) === ".mjs" || !!Object.keys(o).length) return true;
     return false;
 }
 
@@ -209,8 +209,8 @@ function _isESMCodeBase(absPath) {
 function _isCJSCodeBase(absPath) {
     let o = _requireRegex(absPath);
     let r = _importESRegex(absPath);
-    if (!Object.keys(r)) {
-        if (!!Object.keys(o) || !![".cjs", ".js"].includes(_isESMFileExtension(absPath))) {
+    if (!Object.keys(r).length) {
+        if (!!Object.keys(o).length || !![".cjs", ".js"].includes(_isESMFileExtension(absPath))) {
             return true;
         }
     }
@@ -224,10 +224,15 @@ function _isCJSCodeBase(absPath) {
  * @return {*} 
  */
 function _isESCode(absPath) {
+    //
+    // has require
+    // has import()
+    // has import from ""
+    // has mjs, cjs, js extension
+    // 
     if (!_isCJSCodeBase(absPath) || !!_isESMCodeBase(absPath) && (!_requireRegex(absPath))) return true;
     return false;
 }
-
 
 /**
  *
