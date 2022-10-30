@@ -3,9 +3,9 @@
 //  * Package: 
 //  * Author: Ganesh B
 //  * Description: 
-//  * Install: npm i  --save
+//  * Install: npm i get-imported --save
 //  * Github: https://github.com/ganeshkbhat/get-imports
-//  * npmjs Link: https://www.npmjs.com/package/require-urls
+//  * npmjs Link: https://www.npmjs.com/package/get-imported
 //  * File: test-.js
 //  * Test for File: index.js
 //  * File Description: 
