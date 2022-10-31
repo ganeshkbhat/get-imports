@@ -81,6 +81,18 @@ function _checkModuleImports(absPath) {
     }
 }
 
+function _checkRequireModuleImports() {
+    try {
+        if (!require.cache) {
+            return import(absPath);
+        } else {
+            return require(absPath);
+        }
+    } catch (e) {
+        return e;
+    }
+}
+
 function _requiresObject() {
     function trim(p) {
         let reqregex = /(.*?).js/;
@@ -312,5 +324,6 @@ module.exports._isESMCodeBase = _isESMCodeBase;
 module.exports._isCJSCodeBase = _isCJSCodeBase;
 module.exports._isESCode = _isESCode;
 module.exports._isModuleInPackageJson = _isModuleInPackageJson;
+module.exports._checkRequireModuleImports = _checkRequireModuleImports;
 module.exports.default = _isESCode;
 
