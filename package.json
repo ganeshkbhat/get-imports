@@ -22,7 +22,7 @@
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^10.1.0",
-    "nsp": "^2.8.1",
+    "nsp": "^3.2.1",
     "nsp-api": "^1.0.3",
     "safe-regex": "^2.1.1",
     "sinon": "^14.0.1",
