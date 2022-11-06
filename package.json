@@ -1,6 +1,6 @@
 {
   "name": "get-imported",
-  "version": "0.0.51",
+  "version": "0.0.6",
   "description": "JS functions to check all imports or required modules and check if the file is a ES Module or a CJS/ JS Module or Script",
   "main": "index.js",
   "directories": {

@@ -39,7 +39,7 @@ function _getRoot(startdirectory, options = { baseType: "git" }) {
     }
 
     if (!options.getRootCallback) {
-        options["getRootCallback"] = cb
+        options["getRootCallback"] = cb;
     }
 
     startdirectory = startdirectory || module.parent.filename;
@@ -110,7 +110,7 @@ function _requiresObject() {
     return requireCache;
 }
 
-function _requireRegex(absPath) {
+function _requireRegex(absPath, basePath = "", useProcessCwd = false) {
     var requiredFiles = {};
     var contents = fs.readFileSync(absPath, 'utf8').split('\n');
 
@@ -119,14 +119,19 @@ function _requireRegex(absPath) {
         var matches = reqregex.exec(line);
 
         if (matches) {
-            let basename = path.resolve(matches[1]);
-            requiredFiles[matches[1]] = basename;
+            if (basePath === "") {
+                basePath = matches[1];
+            }
+            if (!!useProcessCwd) {
+                basePath = path.resolve(matches[1]);
+            }
+            requiredFiles[matches[1]] = basePath;
         }
     });
     return requiredFiles;
 }
 
-function _importRegex(absPath) {
+function _importRegex(absPath, basePath = "", useProcessCwd = false) {
     var requiredFiles = {};
     var contents = fs.readFileSync(absPath, 'utf8').split('\n');
 
@@ -134,14 +139,19 @@ function _importRegex(absPath) {
         var importregex = /(?:import\('?"?)(.*?)(?:'?"?\))/;
         var matches = importregex.exec(line);
         if (matches) {
-            let basename = path.resolve(matches[1]);
-            requiredFiles[matches[1]] = basename;
+            if (basePath === "") {
+                basePath = matches[1];
+            }
+            if (!!useProcessCwd) {
+                basePath = path.resolve(matches[1]);
+            }
+            requiredFiles[matches[1]] = basePath;
         }
     });
     return requiredFiles;
 }
 
-function _importRegexExtended(absPath) {
+function _importRegexExtended(absPath, basePath = "", useProcessCwd = false) {
     var requiredFiles = {};
     var contents = fs.readFileSync(absPath, 'utf8').split('\n');
 
@@ -152,14 +162,19 @@ function _importRegexExtended(absPath) {
             matches = matches.filter(function (item) {
                 if (item !== undefined || item !== null) return item;
             });
-            let basename = path.resolve(matches[1]);
-            requiredFiles[matches[1]] = basename;
+            if (basePath === "") {
+                basePath = matches[1];
+            }
+            if (!!useProcessCwd) {
+                basePath = path.resolve(matches[1]);
+            }
+            requiredFiles[matches[1]] = basePath;
         }
     });
     return requiredFiles;
 }
 
-function _importESRegex(absPath) {
+function _importESRegex(absPath, basePath = "", useProcessCwd = false) {
     const regex = /import(?:[\s.*]([\w*{}\n\r\t, ]+)[\s*]from)?[\s*](?:["'](.*[\w]+)["'])?/gm;
     const fileContentString = fs.readFileSync(absPath, 'utf8').split('\n');
 
@@ -176,15 +191,20 @@ function _importESRegex(absPath) {
         m.forEach(function (match, groupIndex) {
             console.log(`Found match, group ${groupIndex}: ${match}`);
             if (groupIndex === 2) {
-                let basename = path.resolve(match);
-                arr[match] = basename;
+                if (basePath === "") {
+                    basePath = match;
+                }
+                if (!!useProcessCwd) {
+                    basePath = path.resolve(match);
+                }
+                arr[match] = basePath;
                 // console.log("[basename, match]: ", [basename, match]);
             };
         });
 
     }
     // arr = { ...arr, ..._importRegex(absPath), ..._requiresObject(absPath) } ;
-    arr = { ...arr, ..._importRegex(absPath) };
+    arr = { ...arr, ..._importRegex(absPath, basePath = "", useProcessCwd = false) };
     return arr;
 }
 
@@ -196,6 +216,18 @@ function _importESRegex(absPath) {
  */
 function _isESMFileExtension(absPath) {
     const extMatch = /\.(c|m)?js$/.exec(absPath);
+    if (!extMatch) return false;
+    return extMatch[0];
+}
+
+/**
+ *
+ *
+ * @param {*} absPath
+ * @return {*} 
+ */
+function _isNodeCompatibleFileExtension(absPath) {
+    const extMatch = /\.(c|m)?js|node|wasm$/.exec(absPath);
     if (!extMatch) return false;
     return extMatch[0];
 }
@@ -325,5 +357,6 @@ module.exports._isCJSCodeBase = _isCJSCodeBase;
 module.exports._isESCode = _isESCode;
 module.exports._isModuleInPackageJson = _isModuleInPackageJson;
 module.exports._checkRequireModuleImports = _checkRequireModuleImports;
+module.exports._isNodeCompatibleFileExtension = _isNodeCompatibleFileExtension;
 module.exports.default = _isESCode;
 

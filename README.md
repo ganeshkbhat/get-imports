@@ -79,28 +79,32 @@ There are other script APIs you may wish to explore that includes the following:
 
 `_requireRegex` : Check to see if there are `require()` syntax in code.
  Usage:
-`_requireRegex(absPath)`
+`_requireRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
 `_importRegex` : Check to see if there are `import()` syntax in code.
  Usage:
-`_importRegex(absPath)`
+`_importRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
 `_importESRegex` : Check to see if there are `import x from ""` syntax in code.
  Usage:
-`_importESRegex(absPath)`
+`_importESRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
 `_importRegexExtended` : Check to see if there are `import()` syntax in code.
  Usage:
-`_importRegexExtended(absPath)`
+`_importRegexExtended(absPath, basePath = "", useProcessCwd = false)`
 
 
 `_isESMFileExtension` : Check to see if the file has .mjs/ .cjs/ .js extension.
  Usage:
 `_isESMFileExtension(absPath)`
 
+
+`_isNodeCompatibleFileExtension` : Check to see if the file has .mjs/ .cjs/ .js / .node / .wasm extension.
+ Usage:
+`_isNodeCompatibleFileExtension(absPath)`
 
 `_isESMCodeBase` : Check to see if the code is ESM Module.
  Usage:
