@@ -19,7 +19,7 @@
 import {
     default as getimport, _getRoot, _getPackageJsonRoot, _checkModuleImports,
     _requiresObject, _requireRegex, _importRegex, _importESRegex,
-    _importRegexExtended, _isESMFileExtension, _isESMCodeBase,
+    _importRegexExtended, _isESMFileExtension, _isESMCodeBase, _isNodeCompatibleFileExtension,
     _isCJSCodeBase, _isESCode, _isModuleInPackageJson, _checkRequireModuleImports
 } from './index.js';
 
