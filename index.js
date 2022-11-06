@@ -120,12 +120,12 @@ function _requireRegex(absPath, basePath = "", useProcessCwd = false) {
 
         if (matches) {
             if (basePath === "") {
-                basePath = matches[1];
+                basename = matches[1];
             }
             if (!!useProcessCwd) {
-                basePath = path.resolve(matches[1]);
+                basename = path.resolve(matches[1]);
             }
-            requiredFiles[matches[1]] = basePath;
+            requiredFiles[matches[1]] = basename;
         }
     });
     return requiredFiles;
@@ -139,13 +139,14 @@ function _importRegex(absPath, basePath = "", useProcessCwd = false) {
         var importregex = /(?:import\('?"?)(.*?)(?:'?"?\))/;
         var matches = importregex.exec(line);
         if (matches) {
+            let basename = "";
             if (basePath === "") {
-                basePath = matches[1];
+                basename = matches[1];
             }
             if (!!useProcessCwd) {
-                basePath = path.resolve(matches[1]);
+                basename = path.resolve(matches[1]);
             }
-            requiredFiles[matches[1]] = basePath;
+            requiredFiles[matches[1]] = basename;
         }
     });
     return requiredFiles;
@@ -162,13 +163,14 @@ function _importRegexExtended(absPath, basePath = "", useProcessCwd = false) {
             matches = matches.filter(function (item) {
                 if (item !== undefined || item !== null) return item;
             });
+            let basename = "";
             if (basePath === "") {
-                basePath = matches[1];
+                basename = matches[1];
             }
             if (!!useProcessCwd) {
-                basePath = path.resolve(matches[1]);
+                basename = path.resolve(matches[1]);
             }
-            requiredFiles[matches[1]] = basePath;
+            requiredFiles[matches[1]] = basename;
         }
     });
     return requiredFiles;
@@ -191,13 +193,14 @@ function _importESRegex(absPath, basePath = "", useProcessCwd = false) {
         m.forEach(function (match, groupIndex) {
             console.log(`Found match, group ${groupIndex}: ${match}`);
             if (groupIndex === 2) {
+                let basename = "";
                 if (basePath === "") {
-                    basePath = match;
+                    basename = match;
                 }
                 if (!!useProcessCwd) {
-                    basePath = path.resolve(match);
+                    basename = path.resolve(match);
                 }
-                arr[match] = basePath;
+                arr[match] = basename;
                 // console.log("[basename, match]: ", [basename, match]);
             };
         });
