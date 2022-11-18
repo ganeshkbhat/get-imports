@@ -66,7 +66,6 @@ function _getRoot(startdirectory, options = { baseType: "git" }) {
     }
 }
 
-
 function _checkModuleImports(absPath) {
     try {
         let f;
@@ -217,8 +216,20 @@ function _importESRegex(absPath, basePath = "", useProcessCwd = false) {
  * @param {*} absPath
  * @return {*} 
  */
+function _isCJSFileExtension(absPath) {
+    const extMatch = /\.(c)?js$/.exec(absPath);
+    if (!extMatch) return false;
+    return extMatch[0];
+}
+
+/**
+ *
+ *
+ * @param {*} absPath
+ * @return {*} 
+ */
 function _isESMFileExtension(absPath) {
-    const extMatch = /\.(c|m)?js$/.exec(absPath);
+    const extMatch = /\.mjs$/.exec(absPath);
     if (!extMatch) return false;
     return extMatch[0];
 }
@@ -277,7 +288,7 @@ function _isESCode(absPath) {
     // has import from ""
     // has mjs, cjs, js extension
     // 
-    if (!_isCJSCodeBase(absPath) || !!_isESMCodeBase(absPath) && (!_requireRegex(absPath))) return true;
+    if (!!_isESMCodeBase(absPath) && (!_isCJSCodeBase(absPath) && (!_requireRegex(absPath)))) return true;
     return false;
 }
 
