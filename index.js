@@ -118,6 +118,7 @@ function _requireRegex(absPath, basePath = "", useProcessCwd = false) {
         var matches = reqregex.exec(line);
 
         if (matches) {
+            let basename = "";
             if (basePath === "") {
                 basename = matches[1];
             }
@@ -365,6 +366,7 @@ module.exports._requireRegex = _requireRegex;
 module.exports._importRegex = _importRegex;
 module.exports._importESRegex = _importESRegex;
 module.exports._importRegexExtended = _importRegexExtended;
+module.exports._isCJSFileExtension = _isCJSFileExtension;
 module.exports._isESMFileExtension = _isESMFileExtension;
 module.exports._isESMCodeBase = _isESMCodeBase;
 module.exports._isCJSCodeBase = _isCJSCodeBase;
