@@ -81,7 +81,7 @@ function _checkModuleImports(absPath) {
     }
 }
 
-function _checkRequireModuleImports() {
+function _checkRequireModuleImports(absPath) {
     try {
         if (!require.cache) {
             return import(absPath);
