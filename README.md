@@ -2,6 +2,9 @@
 Module to fetch all required and imported modules in Javascript and NodeJS
 
 
+Find the demos in the [demos folder](./demos)
+
+
 # Usage
 
 `CommonJS example`
@@ -128,3 +131,13 @@ There are other script APIs you may wish to explore that includes the following:
 
 ---
 
+
+
+### Contributions
+
+Contributions, Feature Improvements, Bugs, and Issues are invited. [raising an issue](https://github.com/ganeshkbhat/get-imports/issues)
+
+
+# License
+
+[MIT License](./LICENSE)
