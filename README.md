@@ -9,6 +9,8 @@ Find the demos in the [demos folder](./demos)
 
 `CommonJS example`
 
+File example: `demos/parser.imports.regex.js`
+
 ```
 
 const parser = require("get-imported");
@@ -19,7 +21,6 @@ let example_four = parser._importRegexExtended("./demos/src/parser.imports.regex
 
 
 ```
-
 
 
 File example: `demos/parser.imports.regex.mjs`
@@ -61,10 +62,10 @@ ESM Module
 
 CommonJS Script/ Module
 
-`const checkEsm = require("get-imported");`
-
-
-`isESCode("./path/to/file.mjs")`
+```
+const checkEsm = require("get-imported");
+isESCode("./path/to/file.mjs")
+```
 
 
 ---
@@ -75,88 +76,118 @@ CommonJS Script/ Module
 
 There are other script APIs you may wish to explore that includes the following:
 
-## `checkModuleImports` 
-Check if a module can be imported.
+## `.checkModuleImports` 
+Check if a module can be imported using `import()`
 
 Usage:
-`checkModuleImports(absPath)`
+
+`.checkModuleImports(absPath)`
 
 
 
-## `requiresObject`
+## `.requiresObject`
 Check require.cache list in code - used in your code's process global context.
 
 Usage:
-`requiresObject()`
+
+`.requiresObject()`
 
 
-## `requireRegex`
+
+## `.requireRegex`
 Check to see if there are `require()` syntax in code.
 
 Usage:
-`requireRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.requireRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.requireRegex(absPath)`
 
 
-## `importRegex`
+
+## `.importRegex`
 Check to see if there are `import()` syntax in code.
 
 Usage:
-`importRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.importRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.importRegex(absPath)`
 
 
-## `importESRegex`
+
+## `.importESRegex`
 Check to see if there are `import x from ""` syntax in code.
 
 Usage:
-`importESRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.importESRegex(absPath, basePath = "", useProcessCwd = false)`
+
+`.importESRegex(absPath)`
 
 
-## `importRegexExtended`
+
+## `.importRegexExtended`
 Check to see if there are `import()` syntax in code.
 
 Usage:
-`importRegexExtended(absPath, basePath = "", useProcessCwd = false)`
+
+`.importRegexExtended(absPath, basePath = "", useProcessCwd = false)`
+
+`.importRegexExtended(absPath)`
 
 
-## `isESMFileExtension`
-Check to see if the file has .mjs/ .cjs/ .js extension.
 
-Usage:
-`isESMFileExtension(absPath)`
-
-
-## `isNodeCompatibleFileExtension`
-Check to see if the file has .mjs/ .cjs/ .js / .node / .wasm extension.
+## `.isESMFileExtension`
+Check to see if the file has `.mjs`/ `.cjs`/ `.js` extension.
 
 Usage:
-`isNodeCompatibleFileExtension(absPath)`
+
+`.isESMFileExtension(absPath)`
 
 
-## `isESMCodeBase`
+
+## `.isNodeCompatibleFileExtension`
+Check to see if the file has `.mjs`/ `.cjs`/ `.js` / `.node` / `.wasm` extension.
+
+Usage:
+
+`.isNodeCompatibleFileExtension(absPath)`
+
+
+
+## `.isESMCodeBase`
 Check to see if the code is ESM Module.
 
 Usage:
-`isESMCodeBase(absPath)`
+
+`.isESMCodeBase(absPath)`
+
 
 
 ## `isCJSCodeBase`
 Check to see if the code is CommonJS Script or Module.
 
 Usage:
+
 `isCJSCodeBase(absPath)`
+
 
 
 ## `isModuleInPackageJson`
 Checks type key's value in package.json.
 
 Usage:
+
 `getPackageJsonRoot(startdirectory, options)`
+
 
 
 ## `isESCode`
 Multiple checks to check if the code is ESM Module (other than package.json type key's value check in package.json).
 
 Usage:
+
 `isModuleInPackageJson(absPath, packagejsonPath, returns)`
 
 
