@@ -17,9 +17,9 @@
 
 const parser = require("../index.js");
 const path = require('path');
-const someModuleCJS = require('./parser.demo.require.cache.test.file.cjs');
-const someModuleJS = require('./parser.demo.require.cache.test.file.js');
+const someModuleCJS = require('./file.cjs');
+const someModuleJS = require('./file.js');
 const acorn = require("chai");
 
-let arr = parser._requireRegex("./demos/src/parser.require.regex.js");
+let arr = parser._requireRegex("./demos/parser.require.regex.js");
 console.log(arr);

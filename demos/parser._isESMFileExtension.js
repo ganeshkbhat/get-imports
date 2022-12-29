@@ -18,3 +18,22 @@
 const parser = require("../index.js");
 const path = import('path');
 
+
+let c = parser._isESMFileExtension("./demos/file.mjs");
+console.log('_isESMFileExtension("./demos/file.mjs")', c);
+
+c = parser._isESMFileExtension("./demos/file.cjs");
+console.log('_isESMFileExtension("./demos/file.cjs")', c);
+
+c = parser._isESMFileExtension("./demos/file.js");
+console.log('_isESMFileExtension("./demos/file.js")', c);
+
+c = parser._isCJSFileExtension("./demos/file.mjs");
+console.log('_isCJSFileExtension("./demos/file.mjs")', c);
+
+c = parser._isCJSFileExtension("./demos/file.cjs");
+console.log('_isCJSFileExtension("./demos/file.cjs")', c);
+
+c = parser._isCJSFileExtension("./demos/file.js");
+console.log('_isCJSFileExtension("./demos/file.js")', c);
+

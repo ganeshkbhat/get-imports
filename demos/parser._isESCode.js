@@ -17,3 +17,14 @@
 
 const parser = require("../index.js");
 const path = import('path');
+
+
+let c = parser._isESCode("./demos/file.mjs");
+console.log('_isESCode("./demos/file.mjs")', c);
+
+c = parser._isESCode("./demos/file.cjs");
+console.log('_isESCode("./demos/file.cjs")', c);
+
+c = parser._isESCode("./demos/file.js");
+console.log('_isESCode("./demos/file.js")', c);
+

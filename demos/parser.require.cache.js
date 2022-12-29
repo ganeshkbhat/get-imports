@@ -16,8 +16,8 @@
 'use strict';
 
 const path = require('path');
-const someModuleCJS = require('./parser.demo.require.cache.test.file.cjs');
-const someModuleJS = require('./parser.demo.require.cache.test.file.js');
+const someModuleCJS = require('./file.cjs');
+const someModuleJS = require('./file.js');
 const acorn = require("chai");
 const parser = require("../index.js");
 

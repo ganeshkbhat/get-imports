@@ -18,10 +18,10 @@
 
 import * as parser from "../index.js";
 const path = import('path');
-const someModuleCJS = import('./parser.demo.require.cache.test.file.cjs');
-const someModuleJS = import('./parser.demo.require.cache.test.file.js');
+const someModuleCJS = import('./file.cjs');
+const someModuleJS = import('./file.js');
 const acorn = import("chai");
 
-let arr = parser._importESRegex("./demos/src/parser.imports.regex.mjs");
+let arr = parser._importESRegex("./demos/parser.imports.regex.mjs");
 console.log(arr);
 

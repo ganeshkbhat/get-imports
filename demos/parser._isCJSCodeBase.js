@@ -19,30 +19,30 @@ const parser = require("../index.js");
 const path = import('path');
 
 
-// let c = parser._isCJSCodeBase("./demos/isESCode.mjs");
-// console.log(c);
+let c = parser._isCJSCodeBase("./demos/file.mjs");
+console.log(c);
 
-// c = parser._isESMCodeBase("./demos/isESCode.mjs");
-// console.log(c);
+c = parser._isESMCodeBase("./demos/file.mjs");
+console.log(c);
 
-// c = parser._isESCode("./demos/isESCode.mjs");
-// console.log(c);
+c = parser._isESCode("./demos/file.mjs");
+console.log(c);
 
-// let c = parser._isCJSCodeBase("./demos/isESCode.cjs");
-// console.log(c);
+c = parser._isCJSCodeBase("./demos/file.cjs");
+console.log(c);
 
-// c = parser._isESMCodeBase("./demos/isESCode.cjs");
-// console.log(c);
+c = parser._isESMCodeBase("./demos/file.cjs");
+console.log(c);
 
-// c = parser._isESCode("./demos/isESCode.cjs");
-// console.log(c);
+c = parser._isESCode("./demos/file.cjs");
+console.log(c);
 
-// let c = parser._isCJSCodeBase("./demos/isESCode.js");
-// console.log(c);
+c = parser._isCJSCodeBase("./demos/file.js");
+console.log(c);
 
-// c = parser._isESMCodeBase("./demos/isESCode.js");
-// console.log(c);
+c = parser._isESMCodeBase("./demos/file.js");
+console.log(c);
 
-// c = parser._isESCode("./demos/isESCode.js");
-// console.log(c);
+c = parser._isESCode("./demos/file.js");
+console.log(c);
 

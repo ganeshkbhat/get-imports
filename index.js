@@ -96,7 +96,8 @@ function _requiresObject() {
     function trim(p) {
         let reqregex = /(.*?).js/;
         let basename = path.basename(p);
-        let moduleName = reqregex.exec(basename)[1];
+        let b = reqregex.exec(basename);
+        let moduleName = (Array.isArray(b) && b.length >=2) ? b[1] : b;
         return [moduleName, p];
     }
     let requireCache = {};
@@ -107,6 +108,12 @@ function _requiresObject() {
         }
     }
     return requireCache;
+}
+
+// CONSIDER SIMPLER NON-ERRONEOUS FUNCTION
+// Above is not error free.
+function _requireObject() {
+    return (!!require && !!require.cache) ? require.cache : {}
 }
 
 function _requireRegex(absPath, basePath = "", useProcessCwd = false) {
@@ -289,7 +296,7 @@ function _isESCode(absPath) {
     // has import from ""
     // has mjs, cjs, js extension
     // 
-    if (!!_isESMCodeBase(absPath) && (!_isCJSCodeBase(absPath) && (!_requireRegex(absPath)))) return true;
+    if (!!_isESMCodeBase(absPath)) return true;
     return false;
 }
 
