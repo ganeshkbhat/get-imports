@@ -1,5 +1,5 @@
-# get-imports
-Module to fetch all required and imported modules in Javascript and NodeJS
+# get-imported
+Module to fetch all required and imported modules in Javascript and NodeJS. The module has JS functions to check all imports or required modules and check if the file is a ES Module or a CJS/ JS Module or Script
 
 
 Find the demos in the [demos folder](./demos)
@@ -54,10 +54,14 @@ console.log(arr);
 ### USAGE
 
 
-ESM Module : `import { _isESCode } from "get-imported";`
+ESM Module
+
+`import { _isESCode } from "get-imported";`
 
 
-CommonJS Script/ Module : `const checkEsm = require("get-imported");`
+CommonJS Script/ Module
+
+`const checkEsm = require("get-imported");`
 
 
 `isESCode("./path/to/file.mjs")`
@@ -71,62 +75,89 @@ CommonJS Script/ Module : `const checkEsm = require("get-imported");`
 
 There are other script APIs you may wish to explore that includes the following:
 
-`_checkModuleImports` : Check if a module can be imported.
- Usage:
-`_checkModuleImports(absPath)`
+## `checkModuleImports` 
+Check if a module can be imported.
 
-`_requiresObject` : Check require.cache list in code - used in your code's process global context.
- Usage:
-`_requiresObject()`
+Usage:
+`checkModuleImports(absPath)`
 
 
-`_requireRegex` : Check to see if there are `require()` syntax in code.
- Usage:
-`_requireRegex(absPath, basePath = "", useProcessCwd = false)`
+
+## `requiresObject`
+Check require.cache list in code - used in your code's process global context.
+
+Usage:
+`requiresObject()`
 
 
-`_importRegex` : Check to see if there are `import()` syntax in code.
- Usage:
-`_importRegex(absPath, basePath = "", useProcessCwd = false)`
+## `requireRegex`
+Check to see if there are `require()` syntax in code.
+
+Usage:
+`requireRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
-`_importESRegex` : Check to see if there are `import x from ""` syntax in code.
- Usage:
-`_importESRegex(absPath, basePath = "", useProcessCwd = false)`
+## `importRegex`
+Check to see if there are `import()` syntax in code.
+
+Usage:
+`importRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
-`_importRegexExtended` : Check to see if there are `import()` syntax in code.
- Usage:
-`_importRegexExtended(absPath, basePath = "", useProcessCwd = false)`
+## `importESRegex`
+Check to see if there are `import x from ""` syntax in code.
+
+Usage:
+`importESRegex(absPath, basePath = "", useProcessCwd = false)`
 
 
-`_isESMFileExtension` : Check to see if the file has .mjs/ .cjs/ .js extension.
- Usage:
-`_isESMFileExtension(absPath)`
+## `importRegexExtended`
+Check to see if there are `import()` syntax in code.
+
+Usage:
+`importRegexExtended(absPath, basePath = "", useProcessCwd = false)`
 
 
-`_isNodeCompatibleFileExtension` : Check to see if the file has .mjs/ .cjs/ .js / .node / .wasm extension.
- Usage:
-`_isNodeCompatibleFileExtension(absPath)`
+## `isESMFileExtension`
+Check to see if the file has .mjs/ .cjs/ .js extension.
 
-`_isESMCodeBase` : Check to see if the code is ESM Module.
- Usage:
-`_isESMCodeBase(absPath)`
+Usage:
+`isESMFileExtension(absPath)`
 
 
-`_isCJSCodeBase` : Check to see if the code is CommonJS Script or Module.
- Usage:
-`_isCJSCodeBase(absPath)`
+## `isNodeCompatibleFileExtension`
+Check to see if the file has .mjs/ .cjs/ .js / .node / .wasm extension.
+
+Usage:
+`isNodeCompatibleFileExtension(absPath)`
 
 
-`_isModuleInPackageJson` : Checks type key's value in package.json.
- Usage:
-`_getPackageJsonRoot(startdirectory, options)`
+## `isESMCodeBase`
+Check to see if the code is ESM Module.
+
+Usage:
+`isESMCodeBase(absPath)`
 
 
-`_isESCode` : Multiple checks to check if the code is ESM Module (other than package.json type key's value check in package.json).
- Usage:
-`_isModuleInPackageJson(absPath, packagejsonPath, returns)`
+## `isCJSCodeBase`
+Check to see if the code is CommonJS Script or Module.
+
+Usage:
+`isCJSCodeBase(absPath)`
+
+
+## `isModuleInPackageJson`
+Checks type key's value in package.json.
+
+Usage:
+`getPackageJsonRoot(startdirectory, options)`
+
+
+## `isESCode`
+Multiple checks to check if the code is ESM Module (other than package.json type key's value check in package.json).
+
+Usage:
+`isModuleInPackageJson(absPath, packagejsonPath, returns)`
 
 
 ---

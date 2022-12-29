@@ -374,5 +374,23 @@ module.exports._isESCode = _isESCode;
 module.exports._isModuleInPackageJson = _isModuleInPackageJson;
 module.exports._checkRequireModuleImports = _checkRequireModuleImports;
 module.exports._isNodeCompatibleFileExtension = _isNodeCompatibleFileExtension;
+
+module.exports.getRoot = _getRoot;
+module.exports.getPackageJsonRoot = _getPackageJsonRoot;
+module.exports.checkModuleImports = _checkModuleImports;
+module.exports.requiresObject = _requiresObject;
+module.exports.requireRegex = _requireRegex;
+module.exports.importRegex = _importRegex;
+module.exports.importESRegex = _importESRegex;
+module.exports.importRegexExtended = _importRegexExtended;
+module.exports.isCJSFileExtension = _isCJSFileExtension;
+module.exports.isESMFileExtension = _isESMFileExtension;
+module.exports.isESMCodeBase = _isESMCodeBase;
+module.exports.isCJSCodeBase = _isCJSCodeBase;
+module.exports.isESCode = _isESCode;
+module.exports.isModuleInPackageJson = _isModuleInPackageJson;
+module.exports.checkRequireModuleImports = _checkRequireModuleImports;
+module.exports.isNodeCompatibleFileExtension = _isNodeCompatibleFileExtension;
+
 module.exports.default = _isESCode;
 
