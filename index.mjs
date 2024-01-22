@@ -25,7 +25,7 @@ import {
     getRoot, getPackageJsonRoot, checkModuleImports,
     requiresObject, requireRegex, importRegex, importESRegex,
     importRegexExtended, isESMFileExtension, isCJSFileExtension, isESMCodeBase, isNodeCompatibleFileExtension,
-    isCJSCodeBase, isESCode, isModuleInPackageJson, checkRequireModuleImports
+    isCJSCodeBase, isESCode, isModuleInPackageJson, checkRequireModuleImports, createRequireES
 } from './index.js';
 
 import * as getimports from "./index.js";
@@ -41,5 +41,5 @@ export {
     getRoot, getPackageJsonRoot, checkModuleImports,
     requiresObject, requireRegex, importRegex, importESRegex,
     importRegexExtended, isESMFileExtension, isCJSFileExtension, isESMCodeBase, isNodeCompatibleFileExtension,
-    isCJSCodeBase, isESCode, isModuleInPackageJson, checkRequireModuleImports
+    isCJSCodeBase, isESCode, isModuleInPackageJson, checkRequireModuleImports, createRequireES
 };
