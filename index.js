@@ -92,6 +92,15 @@ function _checkRequireModuleImports(absPath) {
     }
 }
 
+function createRequireES() {
+    if (!require || !require.cache) {
+        const createRequire = import('module').createRequire;
+        const require = createRequire(import.meta.url); 
+        return require;
+    }
+    return require;
+}
+
 function _requiresObject() {
     function trim(p) {
         let reqregex = /(.*?).js/;
@@ -398,6 +407,7 @@ module.exports.isESCode = _isESCode;
 module.exports.isModuleInPackageJson = _isModuleInPackageJson;
 module.exports.checkRequireModuleImports = _checkRequireModuleImports;
 module.exports.isNodeCompatibleFileExtension = _isNodeCompatibleFileExtension;
+module.exports.createRequireES = createRequireES;
 
 module.exports.default = _isESCode;
 
